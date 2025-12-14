@@ -3,6 +3,7 @@ import { useUploads } from "../store/uploads";
 import { UploadWidgetUploadItem } from "./upload-widget-upload-item";
 
 export function UploadWidgetUploadList() {
+  // Acessa o Map de uploads da store global
   const uploads = useUploads((store) => store.uploads);
 
   const isUploadListEmpty = uploads.size === 0;
@@ -13,12 +14,14 @@ export function UploadWidgetUploadList() {
         Uploaded files <span className="text-zinc-400">({uploads.size})</span>
       </span>
 
+      {/* Área com Scroll para listar os arquivos */}
       <ScrollArea.Root type="scroll" className="overflow-hidden">
         <ScrollArea.Viewport className="h-[220px]">
           {isUploadListEmpty ? (
             <span className="text-xs text-zinc-400">No uploads added</span>
           ) : (
             <div className="flex flex-col gap-2">
+              {/* Converte o Map em Array para percorrer e renderizar cada item */}
               {Array.from(uploads).map(([uploadId, upload]) => {
                 return (
                   <UploadWidgetUploadItem
@@ -32,6 +35,7 @@ export function UploadWidgetUploadList() {
           )}
         </ScrollArea.Viewport>
 
+        {/* Scrollbar do Radix UI */}
         <ScrollArea.Scrollbar
           className="flex touch-none select-none bg-zinc-800 p-0.5 transition-colors duration-[160ms] ease-out data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col"
           orientation="vertical"

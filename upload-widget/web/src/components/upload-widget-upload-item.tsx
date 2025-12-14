@@ -1,9 +1,8 @@
 import * as Progress from "@radix-ui/react-progress";
 
-import { Download, ImageUp, Link2, RefreshCcw, Upload, X } from "lucide-react";
+import { Download, ImageUp, Link2, RefreshCcw, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion } from "motion/react";
-/* Corrigindo a duplicação do import Upload ussando type*/
 import { type Upload, useUploads } from "../store/uploads";
 import { formatBytes } from "../utils/format-bytes";
 import { downloadUrl } from "../utils/download-url";
@@ -17,9 +16,12 @@ export function UploadWidgetUploadItem({
   upload,
   uploadId,
 }: UploadWidgetUploadItemProps) {
+  // Acessa as ações (actions) da store de uploads
   const cancelUpload = useUploads((store) => store.cancelUpload);
   const retryUpload = useUploads((store) => store.retryUpload);
 
+  // Calcula o progresso do upload.
+  // Se houver tamanho comprimido, o progresso é relativo a ele.
   const progress = Math.min(
     upload.compressedSizeInBytes
       ? Math.round(
@@ -38,6 +40,7 @@ export function UploadWidgetUploadItem({
       }}
       transition={{ duration: 0.4 }}
     >
+      {/* Informações do arquivo: Nome e Tamanhos */}
       <div className="flex flex-col gap-1">
         <span className="text-xs font-medium flex items-center gap-1">
           <ImageUp className="size-3 text-zinc-300" strokeWidth={1.5} />
@@ -51,6 +54,7 @@ export function UploadWidgetUploadItem({
           <div className="size-1 rounded-full bg-zinc-700" />
           <span>
             {formatBytes(upload.compressedSizeInBytes ?? 0)}
+            {/* Exibe a economia de tamanho (compressão) se disponível */}
             {upload.compressedSizeInBytes && (
               <span className="text-green-400 ml-1">
                 -
@@ -65,6 +69,7 @@ export function UploadWidgetUploadItem({
           </span>
           <div className="size-1 rounded-full bg-zinc-700" />
 
+          {/* Status do upload em texto */}
           {upload.status === "success" && <span>100%</span>}
           {upload.status === "progress" && <span>{progress}%</span>}
           {upload.status === "error" && (
@@ -76,6 +81,7 @@ export function UploadWidgetUploadItem({
         </span>
       </div>
 
+      {/* Barra de Progresso visual */}
       <Progress.Root
         value={progress}
         data-status={upload.status}
@@ -89,6 +95,7 @@ export function UploadWidgetUploadItem({
         />
       </Progress.Root>
 
+      {/* Botões de Ação (Download, Copy Link, Retry, Cancel) */}
       <div className="absolute top-2 right-2 flex items-center gap-1">
         <Button
           size="icon-sm"
