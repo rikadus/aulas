@@ -4,20 +4,26 @@ import { motion } from "motion/react";
 import { usePendingUploads, useUploads } from "../store/uploads";
 
 export function UploadWidgetDropzone() {
+  // Acessa as ações (actions) e o estado global de uploads
   const addUploads = useUploads((store) => store.addUploads);
   const amountOfUploads = useUploads((store) => store.uploads.size);
+  
+  // Hook customizado para calcular o progresso global e verificar se há uploads pendentes
   const { isThereAnyPendingUploads, globalPercentage } = usePendingUploads();
 
+  // Configuração da zona de drag-and-drop
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    multiple: true,
+    multiple: true, // Permite múltiplos arquivos
     accept: {
       "image/jpeg": [],
       "image/png": [],
     },
     onDrop(acceptedFiles) {
+      // Adiciona os arquivos soltos à fila de upload
       addUploads(acceptedFiles);
     },
   });
+
   return (
     <motion.div
       className="px-3 flex flex-col gap-3"
@@ -34,6 +40,8 @@ export function UploadWidgetDropzone() {
       >
         <input type="file" {...getInputProps()} />
 
+        {/* Condicional: Se houver uploads pendentes, mostra a barra de progresso.
+            Caso contrário, mostra a mensagem para arrastar arquivos. */}
         {isThereAnyPendingUploads ? (
           <div className="flex flex-col gap-2.5 items-center">
             <CircularProgressBar
