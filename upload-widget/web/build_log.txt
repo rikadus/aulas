@@ -1,0 +1,27 @@
+[36mvite v7.2.7 [32mbuilding client environment for production...[36m[39m
+transforming...
+
+./fonts/MinhaFonte.ttf referenced in ./fonts/MinhaFonte.ttf didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[32mÔ£ô[39m 2203 modules transformed.
+Ô£ù Build failed in 2.44s
+error during build:
+node_modules/.pnpm/tailwind-variants@3.2.2_tailwindcss@4.1.18/node_modules/tailwind-variants/dist/index.js (5:9): "twMerge" is not exported by "__vite-optional-peer-dep:tailwind-merge:tailwind-variants:false", imported by "node_modules/.pnpm/tailwind-variants@3.2.2_tailwindcss@4.1.18/node_modules/tailwind-variants/dist/index.js".
+file: C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/tailwind-variants@3.2.2_tailwindcss@4.1.18/node_modules/tailwind-variants/dist/index.js:5:9
+
+3: import { cx, isEmptyObject } from './chunk-LQJYWU4O.js';
+4: export { cx } from './chunk-LQJYWU4O.js';
+5: import { twMerge, extendTailwindMerge } from 'tailwind-merge';
+            ^
+6: 
+7: var createTwMerge = (cachedTwMergeConfig) => {
+
+    at getRollupError (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at error (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
+    at Module.error (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:16956:16)
+    at Module.traceVariable (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:17412:29)
+    at ModuleScope.findVariable (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:15076:39)
+    at ReturnValueScope.findVariable (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:5649:38)
+    at FunctionBodyScope.findVariable (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:5649:38)
+    at Identifier.bind (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:5423:40)
+    at ConditionalExpression.bind (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:2813:23)
+    at ReturnStatement.bind (file:///C:/Users/kadus/Documents/aulas/upload-widget/web/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:2813:23)
