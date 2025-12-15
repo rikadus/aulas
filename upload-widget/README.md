@@ -98,4 +98,7 @@ upload-widget/
 
 ---
 
-Desenvolvido com 💜 por [Seu Nome]
+Desenvolvido com 💜 por Ricardo Rodrigo
+
+LinkedIn: https://www.linkedin.com/in/ricardorodrigues/ 
+GitHub: https://github.com/ricardorodrigues
