@@ -6,6 +6,7 @@ import { CanceledError } from "axios";
 import { useShallow } from "zustand/shallow";
 import { compressImage } from "../utils/compress-image";
 
+
 export type Upload = {
   name: string;
   file: File;

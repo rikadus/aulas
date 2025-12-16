@@ -3,6 +3,7 @@ import CircularProgressBar from "./ui/circular-progress-bar";
 import { motion } from "motion/react";
 import { usePendingUploads, useUploads } from "../store/uploads";
 
+
 export function UploadWidgetDropzone() {
   // Acessa as ações (actions) e o estado global de uploads
   const addUploads = useUploads((store) => store.addUploads);
