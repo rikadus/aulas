@@ -21,9 +21,6 @@ export async function uploadFileToStorage(
     import.meta.env.VITE_API_URL || "http://localhost:3333/uploads",
     data,
     {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
       signal: opts?.signal,
       onUploadProgress(progressEvent) {
         onProgress(progressEvent.loaded);
